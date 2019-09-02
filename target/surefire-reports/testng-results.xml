@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="1" total="4" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="37138" started-at="2019-08-25T11:05:34Z" finished-at="2019-08-25T11:06:11Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="37138" started-at="2019-08-25T11:05:34Z" finished-at="2019-08-25T11:06:11Z">
+      <class name="com.crm.qa.testcases.HomePageTest">
+        <test-method status="PASS" signature="envSetUp()[pri:0, instance:com.crm.qa.testcases.HomePageTest@26be92ad]" name="envSetUp" is-config="true" duration-ms="21" started-at="2019-08-25T12:05:34Z" finished-at="2019-08-25T12:05:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- envSetUp -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.HomePageTest@26be92ad]" name="setUp" is-config="true" duration-ms="10124" started-at="2019-08-25T12:05:47Z" finished-at="2019-08-25T12:05:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="validateTitle()[pri:1, instance:com.crm.qa.testcases.HomePageTest@26be92ad]" name="validateTitle" duration-ms="45" started-at="2019-08-25T12:05:57Z" finished-at="2019-08-25T12:05:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateTitle -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.crm.qa.testcases.HomePageTest@26be92ad]" name="tearDown" is-config="true" duration-ms="159" started-at="2019-08-25T12:05:57Z" finished-at="2019-08-25T12:05:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=validateTitle status=SUCCESS method=HomePageTest.validateTitle()[pri:1, instance:com.crm.qa.testcases.HomePageTest@26be92ad] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.HomePageTest@26be92ad]" name="setUp" is-config="true" duration-ms="10114" started-at="2019-08-25T12:05:57Z" finished-at="2019-08-25T12:06:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="searchRepository()[pri:2, instance:com.crm.qa.testcases.HomePageTest@26be92ad]" name="searchRepository" duration-ms="3515" started-at="2019-08-25T12:06:07Z" finished-at="2019-08-25T12:06:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchRepository -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.crm.qa.testcases.HomePageTest@26be92ad]" name="tearDown" is-config="true" duration-ms="168" started-at="2019-08-25T12:06:11Z" finished-at="2019-08-25T12:06:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=searchRepository status=SUCCESS method=HomePageTest.searchRepository()[pri:2, instance:com.crm.qa.testcases.HomePageTest@26be92ad] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.crm.qa.testcases.HomePageTest -->
+      <class name="com.crm.qa.testcases.LoginPageTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LoginPageTest@4c70fda8]" name="setUp" is-config="true" duration-ms="9882" started-at="2019-08-25T12:05:34Z" finished-at="2019-08-25T12:05:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="loginTest()[pri:0, instance:com.crm.qa.testcases.LoginPageTest@4c70fda8]" name="loginTest" duration-ms="2948" started-at="2019-08-25T12:05:44Z" finished-at="2019-08-25T12:05:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.crm.qa.testcases.LoginPageTest@4c70fda8]" name="tearDown" is-config="true" duration-ms="153" started-at="2019-08-25T12:05:47Z" finished-at="2019-08-25T12:05:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=loginTest status=SUCCESS method=LoginPageTest.loginTest()[pri:0, instance:com.crm.qa.testcases.LoginPageTest@4c70fda8] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.crm.qa.testcases.LoginPageTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>
