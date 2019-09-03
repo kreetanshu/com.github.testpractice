@@ -16,7 +16,8 @@ public class HomePage extends BaseTest {
 	final static String dropdownArrow = ".//span[@class='dropdown-caret']//parent::summary[@aria-label='View profile and more']";
 	static String viewRepoLinkXpath= ".//a[@role='menuitem'][@class='dropdown-item']";
 	final static String repositoryText = "Your repositories";
-	
+	String searchBox ="";
+	String dropdownValue="//div[contains(text(),'kreetanshu/com.github.test')]";
 	public HomePage() throws IOException {
 		PageFactory.initElements(driver, this);
 	}
@@ -31,6 +32,8 @@ public class HomePage extends BaseTest {
 	@FindBy(xpath =dropdownArrow)
 	WebElement viewProfileDropdown;
     
+	@FindBy(name="q")
+	WebElement searchBoxTop;
 	
 	
 	public boolean validateExploreGithubText() {
@@ -39,6 +42,11 @@ public class HomePage extends BaseTest {
 	
 	public void clickProfileDropdown(){
 		viewProfileDropdown.click();
+	}
+	
+	public void selectFromDropdown(){
+		searchBoxTop.sendKeys("");
+		TestUtil.selectFromDropdown(dropdownValue);
 	}
 	
 	public RepositoriesPage clickAndNavigateRepositories() throws IOException{

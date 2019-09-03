@@ -21,6 +21,7 @@ public class HomePageTest extends BaseTest {
 	RepositoriesPage repoPage;
 
 	final static String expectedTitle="GitHub";
+	final static String expectedUrlDropdownTest="https://github.com/kreetanshu/com.github.test";
 	String searchReporsitoryText ="Amber123";
 	
 	static Logger log = Logger.getLogger(LoginPageTest.class);
@@ -38,8 +39,14 @@ public class HomePageTest extends BaseTest {
 	@Test(priority=1)
 	public void validateTitle() {
 		Assert.assertEquals(TestUtil.getPageTitle(), expectedTitle);
-		log.info("validate title successfull");
-		
+		log.info("validate title successfull");	
+	}
+	
+	@Test(priority=2)
+	public void searchAndSelectDropdownTest() {
+		homePage.selectFromDropdown();
+		Assert.assertEquals(driver.getCurrentUrl(), expectedUrlDropdownTest);
+		log.info("dropdown test with url navigation successfull");		
 	}
 	
 	//@Test(priority=2,alwaysRun=true,dataProvider="getSearchRepo", dataProviderClass= DataProviderClass.class)
@@ -50,7 +57,7 @@ public class HomePageTest extends BaseTest {
 		log.info("repository search successfull");
 	}
 	
-	@Test(priority=3)
+	//@Test(priority=3)
 	public void navigateRepositoryPage() throws IOException
 	{
 		repoPage = homePage.clickAndNavigateRepositories();

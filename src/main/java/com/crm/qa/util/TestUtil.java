@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
@@ -26,6 +25,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -69,6 +69,14 @@ public class TestUtil extends BaseTest {
 	
 	public static void waitForElementInVisiblibility(WebElement element, Long time) {
 		new WebDriverWait(driver,time).until(ExpectedConditions.invisibilityOf(element));
+	}
+	
+	public static void waitForElementToBeClickable(WebElement element, Long time) {
+		new WebDriverWait(driver,time).until(ExpectedConditions.elementToBeClickable(element));
+	}
+	
+	public static void waitForFrameAndSwitchToIt(WebElement element, Long time) {
+		new WebDriverWait(driver,time).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));
 	}
 	
 	public static void takeScreenShot() throws IOException {
@@ -116,6 +124,20 @@ public class TestUtil extends BaseTest {
 		workbook.close();
 		fileInput.close();
 		fileOutput.close();
+	}
+	
+	public static void selectFromDropdown(String dropdownTextXpath){
+		Actions builder = new Actions(driver);
+		WebElement element = driver.findElement(By.xpath(dropdownTextXpath));
+		
+		try {
+			builder.moveToElement(element).build();
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		builder.click(element).build().perform();
 	}
 	
 	public static void selectBootstrapDropDownValue(String locatorXPath, String dowpdownText){		
