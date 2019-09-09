@@ -8,6 +8,9 @@ Dependency Java Maven
 ### The tests are written to test the basic funcationalities of github web application. The test data like logins, browsers etc needs to be customized as per user.
 
 Steps to clone execute the tests
+
 git clone https://github.com/kreetanshu/com.github.testpractice
+
 cd testpractice
+
 mvn clean test
