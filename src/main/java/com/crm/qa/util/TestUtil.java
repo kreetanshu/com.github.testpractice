@@ -204,8 +204,34 @@ public class TestUtil extends BaseTest {
 		return brokenLinks;
 		
 	}
+	//Utility to change the backgroud color of an element
 	public static void changeBackgroundColorJS(String color, WebElement element){
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].style.backgroundColor = '"+color+"';", element);
+	}
+	
+	//Utility to draw border for defects
+	public static void drawBorder(WebElement element){
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].style.border = '3px solid red';", element);	
+	}
+	
+	//Utility to click by JS
+	public static void clickByJS(WebElement element){
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].click();", element);
+	}
+	
+	//Utility to scroll by JS
+	public static void scrollByJS(int horizontalscrollValue,int verticalscrollValue){
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy("+horizontalscrollValue+","+verticalscrollValue+");");
+	}
+	
+
+	//Utility to scrollIntoView by JS
+	public static void scrollIntoViewByJS(WebElement element){
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true);",element);
 	}
 }
