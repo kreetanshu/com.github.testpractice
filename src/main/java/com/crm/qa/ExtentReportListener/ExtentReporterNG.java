@@ -20,7 +20,8 @@ import com.relevantcodes.extentreports.LogStatus;
 
 public class ExtentReporterNG implements IReporter {
 	private ExtentReports extent;
-
+        
+	//code for generation of report and creating test nodes
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
 			String outputDirectory) {
 		extent = new ExtentReports(".//ExtentReports//" + File.separator
@@ -41,7 +42,7 @@ public class ExtentReporterNG implements IReporter {
 		extent.flush();
 		extent.close();
 	}
-
+        //code for creating the test nodes
 	private void buildTestNodes(IResultMap tests, LogStatus status) {
 		ExtentTest test;
 
@@ -66,7 +67,7 @@ public class ExtentReporterNG implements IReporter {
 			}
 		}
 	}
-
+        //code to get current time
 	private Date getTime(long millis) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTimeInMillis(millis);
