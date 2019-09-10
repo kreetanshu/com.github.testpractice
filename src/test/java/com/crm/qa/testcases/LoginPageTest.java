@@ -35,6 +35,8 @@ public class LoginPageTest extends BaseTest {
 		loginPage = new LoginPage();
 		log.info("Browser Open");
 	}
+	
+	// Negative test for github login
 	@Test(priority=1)
 	public void loginErrorTest() throws InterruptedException, IOException {		
 		homePage= loginPage.signIn(invalidUserName, invalidPassword);
@@ -42,7 +44,7 @@ public class LoginPageTest extends BaseTest {
 		Assert.assertEquals(loginErrorMessage,actualErrorText);	
 		log.info("Login error test is Successfull");
 	}
-	
+	// Positive test for github login
 	@Test(priority=2)
 	public void loginTest() throws InterruptedException, IOException {
 		homePage= loginPage.signIn(prop.getProperty("username"), prop.getProperty("password"));		
