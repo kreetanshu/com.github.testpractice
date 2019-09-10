@@ -30,14 +30,19 @@ public class BaseTest {
 	public static TestUtil testUtil;
 	public static WebEventListener webEventListner;
 	public static EventFiringWebDriver edriver;
+	/*
+	 * Base test class will serve as a common parent to all page lib and test class so that the common components can be written at one place and used by inheritance
+	 * */
 	
+	// Code to load the configuration property file
 	@BeforeSuite()
 	public void envSetUp() throws IOException{
 		prop= new Properties();
 		FileInputStream file = new FileInputStream(new File(".//src/main/java/com/crm/qa/config/config.properties"));
 		prop.load(file);
 	}
-		
+	
+	// Method to perform the pre-requisires for test: to select the browser, launch it, imlicit timeout etc.
 	public static void initialization() {
 		String browser= prop.getProperty("browser");
 		  
@@ -68,7 +73,7 @@ public class BaseTest {
 		    edriver.register(webEventListner);
 		    driver= edriver;
 		    
-		    //http://the-internet.herokuapp.com/
+		    
 			driver.get(prop.getProperty("url"));
 			driver.manage().window().maximize();
 			driver.manage().deleteAllCookies();
