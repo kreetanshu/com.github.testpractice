@@ -67,7 +67,7 @@ public class BaseTest {
 			System.setProperty("webdriver.ie.driver",".\\drivers\\IEDriverServer.exe" );  
 			driver= new InternetExplorerDriver();
 		}   
-		    
+		    // code to register the event listener for logging
 		    edriver = new EventFiringWebDriver(driver);
 		    webEventListner = new WebEventListener();
 		    edriver.register(webEventListner);
