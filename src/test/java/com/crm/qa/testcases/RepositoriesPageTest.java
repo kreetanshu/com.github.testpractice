@@ -32,6 +32,7 @@ public class RepositoriesPageTest extends BaseTest {
 		loginPage.signIn(prop.getProperty("username"), prop.getProperty("password"));
 		log.info("login successfull");
 	}
+	// Test to count the number of repositories and validate with repository count shown in top tab
 	@Test(priority=1)
 	public void repositoryLinkCountTest() throws InterruptedException, IOException {		
 		repositoriesPage = homePage.clickAndNavigateRepositories();
@@ -43,7 +44,8 @@ public class RepositoriesPageTest extends BaseTest {
 
 	@AfterMethod()
 	public void tearDown(ITestResult result)
-	{
+	{       
+		//Code to capture screenshot upon failure of any test case
 		if(ITestResult.FAILURE==result.getStatus()){
 			try {
 				TestUtil.takeScreenShot();
