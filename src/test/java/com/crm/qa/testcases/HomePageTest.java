@@ -35,13 +35,14 @@ public class HomePageTest extends BaseTest {
 		loginPage.signIn(prop.getProperty("username"), prop.getProperty("password"));
 		log.info("login successfull");
 	}
-	
+	// Test to validate the title of home page after landing
 	@Test(priority=1)
 	public void validateTitle() {
 		Assert.assertEquals(TestUtil.getPageTitle(), expectedTitle);
 		log.info("validate title successfull");	
 	}
 	
+	// Test to validate the dropdown selection and navigation to new url
 	@Test(priority=2)
 	public void searchAndSelectDropdownTest() {
 		homePage.selectFromDropdown();
@@ -49,14 +50,15 @@ public class HomePageTest extends BaseTest {
 		log.info("dropdown test with url navigation successfull");		
 	}
 	
-	//@Test(priority=2,alwaysRun=true,dataProvider="getSearchRepo", dataProviderClass= DataProviderClass.class)
+	// Test to validate the search results, the search data is read from excel using ApacePOI library
+	@Test(priority=2,alwaysRun=true,dataProvider="getSearchRepo", dataProviderClass= DataProviderClass.class)
 	public void searchRepository(String searchText)
 	{   searchReporsitoryText = searchText;
 		String actualText= homePage.searchRepository(searchReporsitoryText);
 		Assert.assertEquals(actualText,searchText);
 		log.info("repository search successfull");
 	}
-	
+	// Test to validate the selection and navigation to a repositories
 	//@Test(priority=3)
 	public void navigateRepositoryPage() throws IOException
 	{
