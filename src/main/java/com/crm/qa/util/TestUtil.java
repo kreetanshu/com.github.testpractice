@@ -41,6 +41,7 @@ public class TestUtil extends BaseTest {
 	
 	static Logger log = Logger.getLogger(TestUtil.class);
 	
+	// Utility method to check if the elemnet is present in DOM or not
 	public static boolean isElementPresent(String locator) {
 		if(driver.findElements(By.xpath(locator)).size()>0) {
 			return true;	
@@ -53,7 +54,7 @@ public class TestUtil extends BaseTest {
 	public static String getPageTitle() {
 		return driver.getTitle();
 	}
-	
+	// Utility method to check if the elemnet is displayed or not
 	public static boolean isElementVisible(String locator) {
 		try {
 			return driver.findElement(By.xpath(locator)).isDisplayed();
@@ -62,29 +63,34 @@ public class TestUtil extends BaseTest {
 			return false;
 		}
 	}
-	
+	// Utility method for explicit wait checking visibility of an element
 	public static void waitForElementVisiblibility(WebElement element, Long time) {
 		new WebDriverWait(driver,time).until(ExpectedConditions.visibilityOf(element));
 	}
 	
+	// Utility method for explicit wait checking in-visibility of an element
 	public static void waitForElementInVisiblibility(WebElement element, Long time) {
 		new WebDriverWait(driver,time).until(ExpectedConditions.invisibilityOf(element));
 	}
 	
+	// Utility method for explicit wait checking an element is clickable or not
 	public static void waitForElementToBeClickable(WebElement element, Long time) {
 		new WebDriverWait(driver,time).until(ExpectedConditions.elementToBeClickable(element));
 	}
 	
+	// Utility method for explicit wait and switching to frames
 	public static void waitForFrameAndSwitchToIt(WebElement element, Long time) {
 		new WebDriverWait(driver,time).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));
 	}
 	
+	// Utility method to capture screenshots
 	public static void takeScreenShot() throws IOException {
 		TakesScreenshot ts = (TakesScreenshot)driver;
 		File srcFile=ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(srcFile,new File(System.getProperty("user.dir")+"/Screenshots/"+ System.currentTimeMillis()+".png"));
 	}
 	
+	// Utility method for reading data from an excel file
 	public static Object [][] getExcelData(String filePath, String sheetName) throws IOException{
 		File file = new File(filePath);
 		FileInputStream fileInput= new FileInputStream(file);
@@ -105,6 +111,7 @@ public class TestUtil extends BaseTest {
 	    
 	}
 	
+	// Utility method for writing data into an excel file
 	public static void writeExcelData(String[][] array, String filePath, String sheetName) throws IOException{
 		File file = new File(filePath);
 		FileInputStream fileInput= new FileInputStream(file);
@@ -125,7 +132,7 @@ public class TestUtil extends BaseTest {
 		fileInput.close();
 		fileOutput.close();
 	}
-	
+	// Utility method selecting run time dropdown value using Actions class
 	public static void selectFromDropdown(String dropdownTextXpath){
 		Actions builder = new Actions(driver);
 		WebElement element = driver.findElement(By.xpath(dropdownTextXpath));
@@ -140,6 +147,7 @@ public class TestUtil extends BaseTest {
 		builder.click(element).build().perform();
 	}
 	
+	// Utility method selecting items from bootstrap dropdown
 	public static void selectBootstrapDropDownValue(String locatorXPath, String dowpdownText){		
 		//Click on the main menu icon for dropdown
 		
@@ -157,7 +165,7 @@ public class TestUtil extends BaseTest {
 			}
 		}	
 	}
-	
+	// Utility method for custome wait, it accepts number of retry attempt as search cout
 	public static void customWaitForElement(String elementXpath, int searchCount){
 		for(int i=0;i<searchCount;i++)
 		{
@@ -178,6 +186,7 @@ public class TestUtil extends BaseTest {
 		}
 	}
 	
+	// Utility method to get the HTTP response code for url connect
 	public static int getHttpResponse(String linkurl) throws IOException{
 		URL url = new URL(linkurl);
 		HttpURLConnection connection = (HttpURLConnection)url.openConnection();
@@ -186,6 +195,7 @@ public class TestUtil extends BaseTest {
 		return connection.getResponseCode();
 	}
 	
+	// Utility method to find the broken links
 	public static List<String> findAllBrokenLinks() throws IOException{
 		List<WebElement> allLinks = driver.findElements(By.tagName("a"));
 		log.info("Total Number of links"+allLinks.size());
