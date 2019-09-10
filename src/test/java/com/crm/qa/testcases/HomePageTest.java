@@ -59,7 +59,7 @@ public class HomePageTest extends BaseTest {
 		log.info("repository search successfull");
 	}
 	// Test to validate the selection and navigation to a repositories
-	//@Test(priority=3)
+	@Test(priority=3)
 	public void navigateRepositoryPage() throws IOException
 	{
 		repoPage = homePage.clickAndNavigateRepositories();
