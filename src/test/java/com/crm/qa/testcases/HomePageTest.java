@@ -21,7 +21,7 @@ public class HomePageTest extends BaseTest {
 	RepositoriesPage repoPage;
 
 	final static String expectedTitle="GitHub";
-	final static String expectedUrlDropdownTest="https://github.com/kreetanshu/com.github.test";
+	final static String expectedUrlDropdownTest="https://github.com/kreetanshu/com.github.testpractice";
 	String searchReporsitoryText ="Amber123";
 	
 	static Logger log = Logger.getLogger(LoginPageTest.class);

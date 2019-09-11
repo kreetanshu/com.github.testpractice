@@ -9,6 +9,7 @@
       <class name="com.crm.qa.testcases.HomePageTest">
         <methods>
           <include name="envSetUp"/>
+          <include name="searchRepository" invocation-numbers="0 1 2 3"/>
           <include name="setUp"/>
           <include name="tearDown"/>
           <include name="searchAndSelectDropdownTest"/>
