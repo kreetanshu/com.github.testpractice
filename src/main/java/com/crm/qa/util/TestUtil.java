@@ -41,7 +41,7 @@ public class TestUtil extends BaseTest {
 	
 	static Logger log = Logger.getLogger(TestUtil.class);
 	
-	// Utility method to check if the elemnet is present in DOM or not
+	// Utility method to check if the element is present in DOM or not
 	public static boolean isElementPresent(String locator) {
 		if(driver.findElements(By.xpath(locator)).size()>0) {
 			return true;	
@@ -54,7 +54,7 @@ public class TestUtil extends BaseTest {
 	public static String getPageTitle() {
 		return driver.getTitle();
 	}
-	// Utility method to check if the elemnet is displayed or not
+	// Utility method to check if the element is displayed or not
 	public static boolean isElementVisible(String locator) {
 		try {
 			return driver.findElement(By.xpath(locator)).isDisplayed();
