@@ -1,4 +1,4 @@
-com\crm\qa\testcases\DataProviderClass.class
-com\crm\qa\testcases\HomePageTest.class
-com\crm\qa\testcases\RepositoriesPageTest.class
-com\crm\qa\testcases\LoginPageTest.class
+com/crm/qa/testcases/LoginPageTest.class
+com/crm/qa/testcases/RepositoriesPageTest.class
+com/crm/qa/testcases/DataProviderClass.class
+com/crm/qa/testcases/HomePageTest.class

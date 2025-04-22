@@ -1,7 +1,5 @@
-com\crm\qa\base\BaseTest.class
-com\crm\qa\ExtentReportListener\ExtentReporterNG.class
-com\crm\qa\pages\HomePage.class
-com\crm\qa\util\TestUtil.class
-com\crm\qa\pages\LoginPage.class
-com\crm\qa\util\WebEventListener.class
-com\crm\qa\pages\RepositoriesPage.class
+com/crm/qa/base/BaseTest.class
+com/crm/qa/pages/LoginPage.class
+com/crm/qa/pages/RepositoriesPage.class
+com/crm/qa/pages/HomePage.class
+com/crm/qa/util/TestUtil.class

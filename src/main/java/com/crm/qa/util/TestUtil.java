@@ -2,44 +2,36 @@ package com.crm.qa.util;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.ITestResult;
 
 import com.crm.qa.base.BaseTest;
 
 public class TestUtil extends BaseTest {
 	public static long PAGE_LOAD_TIMEOUT = 20;
 	public static long IMPLICIT_WAIT = 10;
-	public static long EXPLICIT_WAIT = 20;
+	public static int EXPLICIT_WAIT = 20;
 	static Sheet sheet;
 	
-	static Logger log = Logger.getLogger(TestUtil.class);
+	//static Logger log = Logger.getLogger(TestUtil.class);
 	
 	// Utility method to check if the element is present in DOM or not
 	public static boolean isElementPresent(String locator) {
@@ -64,22 +56,26 @@ public class TestUtil extends BaseTest {
 		}
 	}
 	// Utility method for explicit wait checking visibility of an element
-	public static void waitForElementVisiblibility(WebElement element, Long time) {
+	public static void waitForElementVisiblibility(WebElement element, int waitTime) {
+		Duration time = Duration.ofSeconds(waitTime);
 		new WebDriverWait(driver,time).until(ExpectedConditions.visibilityOf(element));
 	}
 	
 	// Utility method for explicit wait checking in-visibility of an element
-	public static void waitForElementInVisiblibility(WebElement element, Long time) {
+	public static void waitForElementInVisiblibility(WebElement element, int waitTime) {
+		Duration time = Duration.ofSeconds(waitTime);
 		new WebDriverWait(driver,time).until(ExpectedConditions.invisibilityOf(element));
 	}
 	
 	// Utility method for explicit wait checking an element is clickable or not
-	public static void waitForElementToBeClickable(WebElement element, Long time) {
+	public static void waitForElementToBeClickable(WebElement element, int waitTime) {
+		Duration time = Duration.ofSeconds(waitTime);
 		new WebDriverWait(driver,time).until(ExpectedConditions.elementToBeClickable(element));
 	}
 	
 	// Utility method for explicit wait and switching to frames
-	public static void waitForFrameAndSwitchToIt(WebElement element, Long time) {
+	public static void waitForFrameAndSwitchToIt(WebElement element, int waitTime) {
+		Duration time = Duration.ofSeconds(waitTime);
 		new WebDriverWait(driver,time).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));
 	}
 	
@@ -156,12 +152,12 @@ public class TestUtil extends BaseTest {
 		for(WebElement dropdownValue: dropdownValues){
 		
 			if(dropdownValue.getText().trim().equalsIgnoreCase(dowpdownText)){
-				waitForElementVisiblibility(dropdownValue, TestUtil.EXPLICIT_WAIT);
+				waitForElementVisiblibility(dropdownValue, 10);
 				dropdownValue.click();
 				break;
 			}
 			else{
-				log.error("Dropdown value doesn't exist");
+				//log.error("Dropdown value doesn't exist");
 			}
 		}	
 	}
@@ -198,7 +194,7 @@ public class TestUtil extends BaseTest {
 	// Utility method to find the broken links
 	public static List<String> findAllBrokenLinks() throws IOException{
 		List<WebElement> allLinks = driver.findElements(By.tagName("a"));
-		log.info("Total Number of links"+allLinks.size());
+		//log.info("Total Number of links"+allLinks.size());
 		List<String> brokenLinks= new ArrayList<String>();
 		for(WebElement link: allLinks){
 			String href= link.getAttribute("href");

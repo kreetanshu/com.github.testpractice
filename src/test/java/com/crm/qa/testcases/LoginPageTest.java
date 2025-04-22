@@ -1,22 +1,19 @@
 package com.crm.qa.testcases;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.Logger;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import static org.apache.logging.log4j.LogManager.getLogger;
 import org.testng.Assert;
 import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import com.crm.qa.base.BaseTest;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
-import com.crm.qa.util.TestUtil;
 
 
 public class LoginPageTest extends BaseTest {
@@ -26,7 +23,7 @@ public class LoginPageTest extends BaseTest {
 	static String invalidPassword="hjshfs";
 	static String loginErrorMessage="Incorrect username or password.";
 	
-	static Logger log = Logger.getLogger(LoginPageTest.class);
+	private static Logger log = getLogger(LoginPageTest.class);
 	
 
 	@BeforeMethod

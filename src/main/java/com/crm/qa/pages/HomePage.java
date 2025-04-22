@@ -3,7 +3,6 @@ package com.crm.qa.pages;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -22,8 +21,7 @@ public class HomePage extends BaseTest {
 		PageFactory.initElements(driver, this);
 	}
 	
-	
-	@FindBy(linkText="Explore GitHub")
+	@FindBy(xpath="//span[text()='Sign up for GitHub']")
 	WebElement exploreGithub;
 	
 	@FindBy(id="dashboard-repos-filter-left")
@@ -34,7 +32,6 @@ public class HomePage extends BaseTest {
     
 	@FindBy(name="q")
 	WebElement searchBoxTop;
-	
 	
 	public boolean validateExploreGithubText() {
 		return exploreGithub.isDisplayed();
@@ -55,7 +52,7 @@ public class HomePage extends BaseTest {
 		return new RepositoriesPage();
 	}
 	public String searchRepository(String searchText){
-		TestUtil.waitForElementVisiblibility(searchRepoBox, TestUtil.EXPLICIT_WAIT);
+		TestUtil.waitForElementVisiblibility(searchRepoBox,10);
 		searchRepoBox.sendKeys(searchText);
 		TestUtil.changeBackgroundColorJS("yellow", searchRepoBox);
 		try {
@@ -65,10 +62,8 @@ public class HomePage extends BaseTest {
 			e.printStackTrace();
 		}
 		WebElement searchLink= driver.findElement(By.xpath("//ul[@class='list-style-none filterable-active']//span[@class='css-truncate css-truncate-target'][contains(text(),'"+searchText+"')]"));
-		TestUtil.waitForElementVisiblibility(searchLink, 15L);
-		return searchLink.getText();
-	   
+		TestUtil.waitForElementVisiblibility(searchLink,10);
+		return searchLink.getText(); 
 	}
 	
-
 }

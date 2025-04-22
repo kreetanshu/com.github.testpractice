@@ -2,7 +2,9 @@ package com.crm.qa.testcases;
 
 import java.io.IOException;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import static org.apache.logging.log4j.LogManager.getLogger;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -20,7 +22,7 @@ public class RepositoriesPageTest extends BaseTest {
 	HomePage homePage;
 	RepositoriesPage repositoriesPage;
 	
-   static Logger log = Logger.getLogger(RepositoriesPageTest.class);
+	private static Logger log = LogManager.getLogger(RepositoriesPageTest.class);
 	
 
 	@BeforeMethod
